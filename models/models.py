@@ -1,9 +1,9 @@
 import logging
 from .resnet import *
 
+
 def create_model(args):
     logger = logging.getLogger()
-
     model = None
     if args.dataloader.dataset == 'imagenet':
         if args.arch == 'resnet18':

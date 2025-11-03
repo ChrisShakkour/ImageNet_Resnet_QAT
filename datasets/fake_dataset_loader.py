@@ -17,13 +17,15 @@ def build_fake_loaders(cfg):
     """
 
     # --- Extract data configuration ---
-    num_classes = cfg["data"].get("num_classes", 1000)
-    batch_size = cfg["data"].get("batch_size", 256)
-    num_workers = cfg["data"].get("num_workers", 4)
-    image_size = cfg["data"].get("image_size", 224)
-    channels = cfg["data"].get("channels", 3)
-    train_size = cfg["data"].get("train_size", 10000)
-    val_size = cfg["data"].get("val_size", 2000)
+    # `cfg` is expected to provide a `dataloader` namespace (e.g. Munch or object)
+    # Access attributes directly and fall back to sensible defaults when missing.
+    num_classes = cfg.dataloader.num_classes
+    batch_size = cfg.dataloader.batch_size
+    num_workers = cfg.dataloader.workers
+    image_size = cfg.dataloader.image_size
+    channels = cfg.dataloader.channels
+    train_size = cfg.dataloader.train_size
+    val_size = cfg.dataloader.val_size
 
     # --- Transforms ---
     normalize = transforms.Normalize(

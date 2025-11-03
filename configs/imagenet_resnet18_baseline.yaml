@@ -28,6 +28,10 @@ dataloader:
   dataset: imagenet
   # Number of categories in the specified dataset (choices: 1000)
   num_classes: 1000
+  image_size: 224
+  channels: 3
+  train_size: 1000
+  val_size: 100
   # Path to dataset directory
   path: /localhome/fair/Dataset/imagenet
   # Size of mini-batch
@@ -57,7 +61,6 @@ dataloader:
     std: [0.229, 0.224, 0.225]
 
 
-
 resume:
   # Path to a checkpoint to be loaded. Leave blank to skip
   path:
@@ -79,7 +82,7 @@ log:
 arch: resnet18
 
 # Use pre-trained model
-pre_trained: true
+pre_trained: false
 
 #============================ Quantization =====================================
 

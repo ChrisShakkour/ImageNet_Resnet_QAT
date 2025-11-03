@@ -1,9 +1,10 @@
 import os
 import yaml
 import logging
+import munch
 from pprint import pformat
 
-def load_yaml_config(config_path: str, logger) -> dict:
+def load_yaml_config(config_path: str, logger):
     """
     Load and parse a YAML configuration file safely,
     """
@@ -37,7 +38,7 @@ def load_yaml_config(config_path: str, logger) -> dict:
     formatted_config = pformat(config, indent=2, width=100)
     logger.info("Configuration parameters:\n" + formatted_config)
 
-    return config
+    return munch.munchify(config) 
 
 if __name__ == "__main__":
     # Example usage for testing

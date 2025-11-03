@@ -1,8 +1,8 @@
 import torch
 from torch.utils.data import DataLoader
 from torchvision import datasets, transforms
-import pdb
-
+from torchvision.utils import make_grid
+import matplotlib.pyplot as plt
 
 def build_fake_loaders(cfg):
     """
@@ -96,3 +96,8 @@ if __name__ == "__main__":
     # Check one batch
     images, labels = next(iter(train_loader))
     print(f"Batch shape: {images.shape}, Labels: {labels[:5]}")
+
+    images = [images[i] for i in range(4)]
+    grid = make_grid(images, nrow=2)
+    plt.imshow(grid.permute(1, 2, 0))
+    plt.show()

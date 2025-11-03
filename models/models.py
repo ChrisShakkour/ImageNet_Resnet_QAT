@@ -1,7 +1,6 @@
 import logging
 from .resnet import *
 
-
 def create_model(args):
     logger = logging.getLogger()
     model = None

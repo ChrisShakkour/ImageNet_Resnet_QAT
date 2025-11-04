@@ -27,6 +27,10 @@ def main():
     # Create the model
     model = create_model(cfg)
 
+    # Insert quantizers into the model
+    #modules_to_replace = quan.find_modules_to_quantize(model, args.quan)
+    #model = quan.replace_module_by_names(model, modules_to_replace)
+
     # Enables data parallelism if multiple GPUs are available
     if cfg.device.gpu and not cfg.dataloader.serialized:
         model = t.nn.DataParallel(model, device_ids=cfg.device.gpu)

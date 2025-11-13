@@ -13,7 +13,7 @@ def visualize_graph(
     model: Optional[nn.Module] = None,
     params: Optional[Dict[str, torch.Tensor]] = None,
     filename: str = "backward_graph",
-    fmt: str = "png",
+    fmt: str = "png"
 ):
     """
     Visualizes the computation graph (forward/backward) using torchviz.

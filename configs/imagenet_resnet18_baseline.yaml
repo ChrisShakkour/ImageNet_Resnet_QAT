@@ -30,12 +30,10 @@ dataloader:
   num_classes: 1000
   image_size: 224
   channels: 3
-  train_size: 100 #TODO: set properly
-  val_size: 10 #TODO: set properly
   # Path to dataset directory
-  path: /localhome/fair/Dataset/imagenet
+  path: /home/ehoffer/Datasets/imagenet
   # Size of mini-batch
-  batch_size: 64
+  batch_size: 256
   # Number of data loading workers
   workers: 32
   # Seeds random generators in a deterministic way (i.e., set all the seeds 0).
@@ -128,10 +126,10 @@ quan:
 # If this field is true, all the bellowing options will be ignored
 eval: false
 
-epochs: 20
+epochs: 2 #TODO:
 
 optimizer:
-  learning_rate: 0.01
+  learning_rate: 0.1
   momentum: 0.9
   weight_decay: 0.0001
 
